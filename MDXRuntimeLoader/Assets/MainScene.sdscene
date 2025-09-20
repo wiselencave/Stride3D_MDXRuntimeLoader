@@ -1,0 +1,115 @@
+!SceneAsset
+Id: 7671a7f4-a9fc-4ef2-9000-cb2216be3d66
+SerializedVersion: {Stride: 3.1.0.1}
+Tags: []
+ChildrenIds: []
+Offset: {X: 0.0, Y: 0.0, Z: 0.0}
+Hierarchy:
+    RootParts:
+        - ref!! edab8650-5314-483c-86d9-0eab27103400
+        - ref!! f0dc0ceb-3086-443c-b24c-063602379e56
+        - ref!! 20a787b3-f4de-487d-b275-7dbfb57864ec
+        - ref!! 2f7930c2-d6ce-470a-8bf3-50ef769c9390
+        - ref!! cbc65c2e-bf62-4ed5-9fe7-0705579a03f6
+    Parts:
+        -   Entity:
+                Id: 20a787b3-f4de-487d-b275-7dbfb57864ec
+                Name: Skybox
+                Components:
+                    f39b7f4fda37e4f07290714c55ea33ba: !TransformComponent
+                        Id: 921a140b-1ba7-40b9-b9b8-5ca07196d84d
+                        Position: {X: 0.0, Y: 2.0, Z: -2.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    a7f26dde4d7c82f9cd919cf9639cfb3f: !BackgroundComponent
+                        Id: 9b287da1-5859-4fc6-8594-2ff162ea4c01
+                        Texture: 9648a29a-cfdf-47ca-b9a7-c1852e29814b:Skybox texture
+                        Intensity: 0.75
+                    8b5e9a1a2dc0d3820c7ec6edf6d80267: !LightComponent
+                        Id: dcc9ebba-8d15-460c-9e4d-7a4d6850341e
+                        Type: !LightAmbient
+                            Color: !ColorRgbProvider
+                                Value: {R: 1.0, G: 1.0, B: 1.0}
+                        Intensity: 1.05
+        -   Entity:
+                Id: 2f7930c2-d6ce-470a-8bf3-50ef769c9390
+                Name: Ground
+                Components:
+                    c3fc1871d1098e8b55feddb0021348f7: !TransformComponent
+                        Id: c249c6ac-e5d7-445d-a3ed-57039c449cdc
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    cbf573a59be7b709600a0dc3de4b49ca: !ModelComponent
+                        Id: ec11b458-d1c0-44b2-9e8b-80969c8fac11
+                        Model: 44de4a4c-aba0-467c-9694-23979796c566:Ground
+                        Materials: {}
+        -   Entity:
+                Id: cbc65c2e-bf62-4ed5-9fe7-0705579a03f6
+                Name: MDXModel
+                Components:
+                    bdaaec135d0375cc322d9a8db967d8bb: !TransformComponent
+                        Id: c72bf575-35c1-420b-bdf8-5b5988aba3a0
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    88b5f43507edbdad3f46df82fa50b2f1: !MDXRuntimeLoader.MDXComponent,MDXRuntimeLoader
+                        Id: d3a62a4d-5309-4dbb-bede-d3f6195d9fb6
+                    c7782e15f6bc92f6b9c1659ded3777e2: !UIComponent
+                        Id: fa7132da-764e-404e-afea-9135d5121590
+                        Page: b789c234-b7eb-4eb0-accd-54ae6bc65b80:UI/AnimSelector
+                        Resolution: {X: 1280.0, Y: 720.0, Z: 1000.0}
+                        Size: {X: 1.28, Y: 0.72, Z: 1.0}
+        -   Entity:
+                Id: edab8650-5314-483c-86d9-0eab27103400
+                Name: Camera
+                Components:
+                    69368c0bfbf7c2cfc61473cd0eb18752: !TransformComponent
+                        Id: bf6fa9c3-e59c-4942-bb0e-0278c282c109
+                        Position: {X: 0.0, Y: 2.0, Z: -4.390356}
+                        Rotation: {X: 4.280107E-09, Y: -0.9961947, Z: -0.08715574, W: 7.426046E-08}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    a375d0e125f159172aea79d2eb878c07: !CameraComponent
+                        Id: c2e996c4-f5fe-4d89-a843-fe7dd13d29cf
+                        Name: null
+                        Projection: Perspective
+                        NearClipPlane: 0.001
+                        Slot: cfbde371-62e6-4b95-97fa-38518aa3726b
+                    61eb709a2c92881eff54a01be194cab9: !MDXRuntimeLoader.BasicCameraController,MDXRuntimeLoader
+                        Id: e58a8956-a274-4f44-87da-99e867d359d7
+                        Gamepad: false
+                        KeyboardMovementSpeed: {X: 5.0, Y: 5.0, Z: 5.0}
+                        TouchMovementSpeed: {X: 0.7, Y: 0.7, Z: 0.3}
+                        SpeedFactor: 5.0
+                        KeyboardRotationSpeed: {X: 3.0, Y: 3.0}
+                        MouseRotationSpeed: {X: 1.0, Y: 1.0}
+                        TouchRotationSpeed: {X: 1.0, Y: 0.7}
+        -   Entity:
+                Id: f0dc0ceb-3086-443c-b24c-063602379e56
+                Name: Directional light
+                Components:
+                    9fee891d6bc9faf3330b8867089baf87: !TransformComponent
+                        Id: 52fd5823-2e7b-4eed-8987-946b96cfaa87
+                        Position: {X: 0.0, Y: 2.0, Z: 0.0}
+                        Rotation: {X: -0.048117243, Y: 0.9490865, Z: 0.25430697, W: 0.17957601}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    44bf547c1057d9d3b7ded5b209ed01e0: !LightComponent
+                        Id: 2fa1fadd-d7d3-4774-8f94-bad2d8ea4761
+                        Type: !LightDirectional
+                            Color: !ColorRgbProvider
+                                Value: {R: 1.0, G: 1.0, B: 1.0}
+                            Shadow:
+                                Enabled: true
+                                Filter: !LightShadowMapFilterTypePcf
+                                    FilterSize: Filter5x5
+                                Size: XLarge
+                                DepthRange: {}
+                                PartitionMode: !LightDirectionalShadowMap.PartitionLogarithmic {}
+                                ComputeTransmittance: false
+                                BiasParameters: {}
+                        Intensity: 6.0

@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net8.0-windows</TargetFrameworks>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Stride.Engine" Version="4.2.1.2442" />
+    <PackageReference Include="Stride.Video" Version="4.2.1.2442" />
+    <PackageReference Include="Stride.Physics" Version="4.2.1.2442" />
+    <PackageReference Include="Stride.Navigation" Version="4.2.1.2442" />
+    <PackageReference Include="Stride.Particles" Version="4.2.1.2442" />
+    <PackageReference Include="Stride.UI" Version="4.2.1.2442" />
+    <PackageReference Include="Stride.Core.Assets.CompilerApp" Version="4.2.1.2442" IncludeAssets="build;buildTransitive" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="MDXReForged">
+      <HintPath>C:\Users\Administrator\source\repos\MDXReForged\MDXReForged\bin\Release\net8.0\MDXReForged.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>
