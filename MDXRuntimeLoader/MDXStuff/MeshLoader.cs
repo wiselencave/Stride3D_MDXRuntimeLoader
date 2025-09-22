@@ -48,17 +48,17 @@ namespace MDXRuntimeLoader.MDXStuff
                     strideVertices[i] = new VertexPosNormTanTexSkin(pos, normal, tangent, uv, joints, weights);
                 }
 
-                var vertexBuffer = Stride.Graphics.Buffer.Vertex.New(graphicsDevice, strideVertices, GraphicsResourceUsage.Dynamic);
+                var vertexBuffer = Buffer.Vertex.New(graphicsDevice, strideVertices);
 
                 // Index buffer
                 var strideIndices = ConvertIndices(geo.GetFlatTriangleIndices());
-                var indexBuffer = Stride.Graphics.Buffer.Index.New(graphicsDevice, strideIndices);
+                var indexBuffer = Buffer.Index.New(graphicsDevice, strideIndices);
 
                 var newMesh = new Mesh
                 {
                     Draw = new MeshDraw
                     {
-                        PrimitiveType = Stride.Graphics.PrimitiveType.TriangleList,
+                        PrimitiveType = PrimitiveType.TriangleList,
                         DrawCount = strideIndices.Length,
                         IndexBuffer = new IndexBufferBinding(indexBuffer, true, strideIndices.Length),
                         VertexBuffers = [
@@ -68,13 +68,10 @@ namespace MDXRuntimeLoader.MDXStuff
                     },
                     Skinning = skinning,
                     MaterialIndex = (int)geo.MaterialId,
-                    //BoundingBox = new BoundingBox(mdx.Bounds.Extent.Min.ToStrideVector3() * 3f, mdx.Bounds.Extent.Max.ToStrideVector3() * 3f),
+                    //BoundingBox = new BoundingBox(mdx.Bounds.Extent.Min.ToStrideVector3(), mdx.Bounds.Extent.Max.ToStrideVector3()),
                     //BoundingSphere = new BoundingSphere(new Vector3(0, 1, 0), 8)
                    
                 };
-
-                //indexBuffer.Dispose();
-                //vertexBuffer.Dispose();
 
                 newMesh.Parameters.Set(MaterialKeys.HasSkinningPosition, true);
                 newMesh.Parameters.Set(MaterialKeys.HasSkinningNormal, true);

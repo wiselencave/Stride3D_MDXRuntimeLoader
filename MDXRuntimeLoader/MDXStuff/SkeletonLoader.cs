@@ -11,21 +11,16 @@ namespace MDXRuntimeLoader.MDXStuff
         internal static Skeleton Load(List<GenObject> nodes, IReadOnlyList<C34Matrix> bindPoses, IReadOnlyList<CVector3> pivots)
         {
             Skeleton skeleton = new Skeleton();
-            var mNodeDef = new List<ModelNodeDefinition>(2);
-
+            var mNodeDef = new List<ModelNodeDefinition>(nodes.Count + 1);
 
             foreach (var node in nodes)
             {
                 var pivot = pivots[node.ObjectId].ToStrideVector3();
-                Vector3 pivotParent;
+                Vector3 pivotParent = Vector3.Zero;
 
                 if (node.ParentId >= 0)
                 {
                     pivotParent = pivots[node.ParentId].ToStrideVector3();
-                }
-                else
-                {
-                    pivotParent = Vector3.Zero;
                 }
 
                 var localTranslation = Vector3.Subtract(pivot, pivotParent);
@@ -42,8 +37,6 @@ namespace MDXRuntimeLoader.MDXStuff
                             Rotation = Quaternion.Zero,
                             Scale = Vector3.One,
                         },
-                        
-
                     }
                 );
             }

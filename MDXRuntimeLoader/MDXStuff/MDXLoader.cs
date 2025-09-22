@@ -1,13 +1,8 @@
 ﻿using MDXReForged.MDX;
-using MDXReForged.Structs;
-using Microsoft.VisualBasic.Logging;
 using Stride.Animations;
-using Stride.Core.Mathematics;
 using Stride.Core.Serialization.Contents;
 using Stride.Graphics;
-using System;
 using System.Collections.Generic;
-using System.Drawing;
 
 namespace MDXRuntimeLoader.MDXStuff
 {
@@ -34,7 +29,6 @@ namespace MDXRuntimeLoader.MDXStuff
             var skinning = NodeConverter.ConvertSkinning(allNodes, bindPoses, pivots);
             model.Skeleton = SkeletonLoader.Load(allNodes, bindPoses, pivots);
             MeshLoader.Load(graphicsDevice, content, mdx, model, skinning);
-
 
             var animations = Animator.GetClips(mdx.GetSequences(), mdx.GetGlobalSequences(), allNodes, model.Skeleton.Nodes);
 

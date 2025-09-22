@@ -14,6 +14,7 @@ namespace MDXRuntimeLoader.MDXStuff
     internal class MaterialProcessor
     {
         private static string assetsDirectory = "F:\\refUnpackedV203\\war3.w3mod\\Assets\\";
+        private static Dictionary<string, Texture> loadedTextures = new();
 
         internal static void Process(ContentManager content, GraphicsDevice graphicsDevice, Model model, MDXReForged.MDX.Model mdx)
         {
@@ -134,7 +135,7 @@ namespace MDXRuntimeLoader.MDXStuff
             return Path.Combine(assetsDirectory, Path.ChangeExtension(texturePath, "dds"));
         }
 
-        private static Texture LoadTexture(GraphicsDevice graphicsDevice, IReadOnlyList<MDXReForged.MDX.Texture> textures, MDXReForged.MDX.Layer layer, TextureSemantic semantic, bool isSRGB)
+        /*private static Texture LoadTexture(GraphicsDevice graphicsDevice, IReadOnlyList<MDXReForged.MDX.Texture> textures, MDXReForged.MDX.Layer layer, TextureSemantic semantic, bool isSRGB)
         {
             Texture texture;
             using (var fs = File.OpenRead(GetPath(textures, layer, semantic)))
@@ -143,6 +144,24 @@ namespace MDXRuntimeLoader.MDXStuff
                     ? Texture.Load(graphicsDevice, fs, Stride.Graphics.TextureFlags.ShaderResource, GraphicsResourceUsage.Immutable, true)
                     : Texture.Load(graphicsDevice, fs);
             }
+            return texture;
+        }*/
+        private static Texture LoadTexture(GraphicsDevice graphicsDevice, IReadOnlyList<MDXReForged.MDX.Texture> textures, MDXReForged.MDX.Layer layer, TextureSemantic semantic, bool isSRGB)
+        {
+            string path = GetPath(textures, layer, semantic);
+
+            if (loadedTextures.TryGetValue(path, out var loadedTexture))
+                return loadedTexture;
+
+            Texture texture;
+            using (var fs = File.OpenRead(path))
+            {
+                texture = isSRGB
+                    ? Texture.Load(graphicsDevice, fs, Stride.Graphics.TextureFlags.ShaderResource, GraphicsResourceUsage.Immutable, true)
+                    : Texture.Load(graphicsDevice, fs);
+            }
+
+            loadedTextures[path] = texture;
             return texture;
         }
     }

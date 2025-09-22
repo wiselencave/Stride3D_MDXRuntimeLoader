@@ -15,7 +15,7 @@ namespace MDXRuntimeLoader.MDXStuff
         const string baseString = "[ModelComponent.Key].Skeleton.NodeTransformations[index].Transform.type";
         internal static Dictionary<string, AnimationClip> GetClips(IReadOnlyList<Sequence> sequences, IReadOnlyList<int> globalSequences, List<GenObject> mdxNodes, ModelNodeDefinition[] nodes)
         {
-            var clips = new Dictionary<string, AnimationClip>();
+            var clips = new Dictionary<string, AnimationClip>(sequences.Count);
             foreach (var seq in sequences)
             {
                 var range = seq.MaxTime - seq.MinTime + 1;

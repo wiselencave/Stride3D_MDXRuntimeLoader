@@ -31,7 +31,6 @@ namespace MDXRuntimeLoader.MDXStuff
             {
                 var obj = allNodes[i];
 
-
                 var pivot = pivots[obj.ObjectId].ToStrideVector3();
                 pivot = new Vector3(-pivot.X, -pivot.Y, -pivot.Z);
 
